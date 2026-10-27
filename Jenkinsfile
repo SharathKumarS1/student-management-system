@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
 
     stages {
@@ -23,6 +22,25 @@ pipeline {
                 dir('student-ui') {
                     bat 'npm install'
                     bat 'npm run build'
+                }
+            }
+        }
+
+        stage('API Automation Tests') {
+            steps {
+                dir('student-api-tests') {
+                    bat 'npm install'
+                    bat 'npx playwright test'
+                }
+            }
+        }
+
+        stage('UI Automation Tests') {
+            steps {
+                dir('student-ui-tests') {
+                    bat 'npm install'
+                    bat 'npx playwright install'
+                    bat 'npx playwright test'
                 }
             }
         }
