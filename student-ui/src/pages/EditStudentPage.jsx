@@ -1,6 +1,7 @@
 import React, {
   useEffect,
-  useState
+  useState,
+  useCallback
 } from "react";
 
 import {
@@ -21,23 +22,26 @@ function EditStudentPage() {
 
   const navigate = useNavigate();
 
-  const [student,
-        setStudent]
-        = useState(null);
+  const [student, setStudent] =
+    useState(null);
+
+  const loadStudent = useCallback(
+    async () => {
+
+      const response =
+        await getStudent(id);
+
+      setStudent(response.data);
+
+    },
+    [id]
+  );
 
   useEffect(() => {
 
     loadStudent();
 
-  }, []);
-
-  const loadStudent = async () => {
-
-    const response =
-      await getStudent(id);
-
-    setStudent(response.data);
-  };
+  }, [loadStudent]);
 
   const handleUpdate =
     async (updatedStudent) => {
@@ -48,7 +52,7 @@ function EditStudentPage() {
       );
 
       navigate("/");
-  };
+    };
 
   return (
     <div className="container mt-4">
