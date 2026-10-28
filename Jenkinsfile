@@ -45,4 +45,28 @@ pipeline {
             }
         }
     }
+
+    post {
+
+        always {
+
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'student-ui-tests/playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'UI Automation Report'
+            ])
+
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'student-api-tests/playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'API Automation Report'
+            ])
+        }
+    }
 }

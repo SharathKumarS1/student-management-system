@@ -19,7 +19,7 @@ const updatedStudentData = {
 
     department: 'ECE',
 
-    phoneNumber: '9876543210'
+    phoneNumber: '9876597569'
 };
 
 module.exports = { studentData, updatedStudentData};
