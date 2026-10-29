@@ -23,6 +23,18 @@ jobs:
       - name: Login to ECR
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          -version: '21'
+
+      - name: Build Backend JAR
+        run: |
+          cd student-backend
+          mvn clean package -DskipTests
+
+
       - name: Build Backend
         run: |
           docker build -t student-backend ./student-backend
