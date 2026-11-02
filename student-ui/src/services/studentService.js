@@ -3,7 +3,7 @@ import axios from "axios";
 // const API_URL =
 //   "http://localhost:8082/api/students";
 const API_URL =
-  "http://52.64.166.67:8082/api/students";
+  "https://st-c0265820e0fb483d8c0b49dd431d82f5.ecs.ap-southeast-2.on.aws/api/students";
 
 export const getStudents = () =>
   axios.get(API_URL);
