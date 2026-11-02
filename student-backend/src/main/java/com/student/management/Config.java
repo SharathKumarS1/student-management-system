@@ -1,4 +1,4 @@
-package com.student.management.config;
+package com.student.management;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CorsConfig {
+public class Config {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -17,7 +17,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("*")
+                        .allowedOriginPatterns("*")
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
