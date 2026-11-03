@@ -26,7 +26,7 @@ import java.util.List;
 //         RequestMethod.OPTIONS
 //     }
 // )
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class StudentController {
 
     private final StudentService service;
