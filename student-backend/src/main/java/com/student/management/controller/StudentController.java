@@ -15,17 +15,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/students")
 @RequiredArgsConstructor
-@CrossOrigin(
-    originPatterns = "*",
-    allowedHeaders = "*",
-    methods = {
-        RequestMethod.GET,
-        RequestMethod.POST,
-        RequestMethod.PUT,
-        RequestMethod.DELETE,
-        RequestMethod.OPTIONS
-    }
-)
+// @CrossOrigin(
+//     originPatterns = "*",
+//     allowedHeaders = "*",
+//     methods = {
+//         RequestMethod.GET,
+//         RequestMethod.POST,
+//         RequestMethod.PUT,
+//         RequestMethod.DELETE,
+//         RequestMethod.OPTIONS
+//     }
+// )
+@CrossOrigin(origins = "*")
 public class StudentController {
 
     private final StudentService service;
