@@ -31,11 +31,6 @@ public class StudentController {
 
     private final StudentService service;
 
-    @GetMapping("/health-check-sharath")
-    public String version() {
-        return "VERSION-999";
-    }
-
     @PostMapping
     public StudentResponse createStudent(@Valid @RequestBody StudentRequest request) {
         return service.createStudent(request);
