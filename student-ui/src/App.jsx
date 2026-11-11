@@ -1,33 +1,67 @@
+import "./App.css";
+
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  Navigate
 } from "react-router-dom";
 
 import StudentListPage from "./pages/StudentListPage";
 import AddStudentPage from "./pages/AddStudentPage";
 import EditStudentPage from "./pages/EditStudentPage";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
+
   return (
+
     <BrowserRouter>
+
       <Routes>
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
         <Route
           path="/"
-          element={<StudentListPage />}
+          element={
+            localStorage.getItem("token")
+              ? <StudentListPage />
+              : <Navigate to="/login" />
+          }
         />
 
         <Route
           path="/add"
-          element={<AddStudentPage />}
+          element={
+            localStorage.getItem("token")
+              ? <AddStudentPage />
+              : <Navigate to="/login" />
+          }
         />
 
         <Route
           path="/edit/:id"
-          element={<EditStudentPage />}
+          element={
+            localStorage.getItem("token")
+              ? <EditStudentPage />
+              : <Navigate to="/login" />
+          }
         />
+
       </Routes>
+
     </BrowserRouter>
+
   );
 }
 

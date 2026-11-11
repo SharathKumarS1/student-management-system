@@ -55,19 +55,41 @@ function EditStudentPage() {
     };
 
   return (
-    <div className="container mt-4">
 
-      {student && (
+  <div className="student-page">
 
-        <StudentForm
-          selectedStudent={student}
-          onSave={handleUpdate}
-        />
+    <div className="custom-card">
 
-      )}
+      <div className="custom-header">
+
+        <h1>
+          ✏️ Edit Student
+        </h1>
+
+        <p>
+          Update student details
+        </p>
+
+      </div>
+
+      <div className="card-body">
+
+        {student && (
+
+          <StudentForm
+            selectedStudent={student}
+            onSave={handleUpdate}
+          />
+
+        )}
+
+      </div>
 
     </div>
-  );
+
+  </div>
+
+);
 }
 
 export default EditStudentPage;
