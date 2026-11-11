@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// const API_URL =
+//   "http://localhost:8082/api/students";
+
 const API_URL =
-  "http://localhost:8082/api/students";
+"http://a5da0e4509aa3466085a726179623833-1129893059.ap-southeast-2.elb.amazonaws.com/api/students";
 
 const getAuthHeader = () => {
 
