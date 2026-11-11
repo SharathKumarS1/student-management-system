@@ -147,13 +147,37 @@ public class SecurityConfig {
                                 )
                 )
 
+                // .authorizeHttpRequests(
+                //                         auth ->
+                //                             auth
+
+                //                                 .requestMatchers(
+                //                                         HttpMethod.OPTIONS,
+                //                                         "/**"
+                //                                 )
+                //                                 .permitAll()
+
+                //                                 .requestMatchers(
+                //                                     "/api/auth/**"
+                //                                 )
+                //                                 .permitAll()
+
+                //                                 .requestMatchers(
+                //                                     org.springframework.http.HttpMethod.OPTIONS,
+                //                                     "/**"
+                //                                 )
+                //                                 .permitAll()
+
+                //                                 .anyRequest()
+                //                                 .authenticated()
+                // )
                 .authorizeHttpRequests(
                                         auth ->
                                             auth
 
                                                 .requestMatchers(
-                                                        HttpMethod.OPTIONS,
-                                                        "/**"
+                                                    HttpMethod.OPTIONS,
+                                                    "/**"
                                                 )
                                                 .permitAll()
 
@@ -163,8 +187,7 @@ public class SecurityConfig {
                                                 .permitAll()
 
                                                 .requestMatchers(
-                                                    org.springframework.http.HttpMethod.OPTIONS,
-                                                    "/**"
+                                                    "/actuator/**"
                                                 )
                                                 .permitAll()
 
