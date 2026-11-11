@@ -2,8 +2,10 @@ import axios from "axios";
 
 // const API_URL = "http://localhost:8082/api/auth";
 
-const API_URL =
-"http://a5da0e4509aa3466085a726179623833-1129893059.ap-southeast-2.elb.amazonaws.com/api/auth";
+// const API_URL =
+// "http://a5da0e4509aa3466085a726179623833-1129893059.ap-southeast-2.elb.amazonaws.com/api/auth";
+
+const API_URL = "/api/auth";
 
 export const registerUser = async (userData) => {
     const response = await axios.post(
