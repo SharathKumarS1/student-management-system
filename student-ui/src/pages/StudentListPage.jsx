@@ -26,7 +26,7 @@ function StudentListPage() {
 
     loadStudents();
 
-  }, []);
+  }, [navigate]);
 
   const loadStudents = async () => {
 
