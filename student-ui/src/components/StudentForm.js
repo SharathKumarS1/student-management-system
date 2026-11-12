@@ -1,49 +1,47 @@
 import React, { useEffect, useState } from "react";
 
-function StudentForm({
-  onSave,
-  selectedStudent
-}) {
+function StudentForm({ onSave, selectedStudent }) {
 
-  const [student, setStudent] =
-    useState({
+  const [student, setStudent] = useState({
+    name: "",
+    email: "",
+    department: "",
+    phoneNumber: ""
+  });
+
+  useEffect(() => {
+    if (selectedStudent) {
+      setStudent(selectedStudent);
+    }
+  }, [selectedStudent]);
+
+  const handleChange = (e) => {
+    setStudent({
+      ...student,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(student);
+  };
+
+  const handleClear = () => {
+    setStudent({
       name: "",
       email: "",
       department: "",
       phoneNumber: ""
     });
-
-  useEffect(() => {
-
-    if (selectedStudent) {
-      setStudent(selectedStudent);
-    }
-
-  }, [selectedStudent]);
-
-  const handleChange = (e) => {
-
-    setStudent({
-      ...student,
-      [e.target.name]:
-        e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-
-    e.preventDefault();
-
-    onSave(student);
   };
 
   return (
-
     <div className="student-form-card">
 
       <form onSubmit={handleSubmit}>
 
-        <div className="mb-3">
+        <div className="form-group-modern">
 
           <label>
             👤 Student Name
@@ -51,33 +49,33 @@ function StudentForm({
 
           <input
             type="text"
-            className="form-control"
             name="name"
             value={student.name}
             onChange={handleChange}
+            placeholder="Enter student name"
             required
           />
 
         </div>
 
-        <div className="mb-3">
+        <div className="form-group-modern">
 
           <label>
-            📧 Email
+            📧 Email Address
           </label>
 
           <input
             type="email"
-            className="form-control"
             name="email"
             value={student.email}
             onChange={handleChange}
+            placeholder="Enter email address"
             required
           />
 
         </div>
 
-        <div className="mb-3">
+        <div className="form-group-modern">
 
           <label>
             🎓 Department
@@ -85,15 +83,15 @@ function StudentForm({
 
           <input
             type="text"
-            className="form-control"
             name="department"
             value={student.department}
             onChange={handleChange}
+            placeholder="Enter department"
           />
 
         </div>
 
-        <div className="mb-4">
+        <div className="form-group-modern">
 
           <label>
             📱 Phone Number
@@ -101,26 +99,27 @@ function StudentForm({
 
           <input
             type="text"
-            className="form-control"
             name="phoneNumber"
             value={student.phoneNumber}
             onChange={handleChange}
+            placeholder="Enter phone number"
           />
 
         </div>
 
-        <div className="d-flex gap-2">
+        <div className="form-buttons">
 
           <button
             type="submit"
-            className="btn btn-success"
+            className="save-btn-modern"
           >
-            💾 Save
+            💾 Save Student
           </button>
 
           <button
-            type="reset"
-            className="btn btn-secondary"
+            type="button"
+            className="clear-btn-modern"
+            onClick={handleClear}
           >
             🔄 Clear
           </button>

@@ -32,15 +32,12 @@ function EditStudentPage() {
         await getStudent(id);
 
       setStudent(response.data);
-
     },
     [id]
   );
 
   useEffect(() => {
-
     loadStudent();
-
   }, [loadStudent]);
 
   const handleUpdate =
@@ -55,41 +52,38 @@ function EditStudentPage() {
     };
 
   return (
+    <div className="student-page">
 
-  <div className="student-page">
+      <div className="page-header-modern">
 
-    <div className="custom-card">
+        <div>
 
-      <div className="custom-header">
+          <h1>✏️ Edit Student</h1>
 
-        <h1>
-          ✏️ Edit Student
-        </h1>
+          <p>
+            Update student information
+          </p>
 
-        <p>
-          Update student details
-        </p>
+        </div>
 
-      </div>
-
-      <div className="card-body">
-
-        {student && (
-
-          <StudentForm
-            selectedStudent={student}
-            onSave={handleUpdate}
-          />
-
-        )}
+        <button
+          className="back-btn"
+          onClick={() => navigate("/")}
+        >
+          ← Back
+        </button>
 
       </div>
+
+      {student && (
+        <StudentForm
+          selectedStudent={student}
+          onSave={handleUpdate}
+        />
+      )}
 
     </div>
-
-  </div>
-
-);
+  );
 }
 
 export default EditStudentPage;
